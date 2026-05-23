@@ -1,3 +1,7 @@
+<?php
+// Tắt toàn bộ cảnh báo Warning/Notice rác để giao diện không bị phá vỡ giống như ở local
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -9,29 +13,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coffe - Trà Sữa - Trà trái cây</title>
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="public/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="public/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="public/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="public/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/custom.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/slicknav.min.css" type="text/css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
-
-    <!-- Include Toastr CSS and JS files -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- Include Toastr CSS and JS files end -->
-    <script src="public/js/zload.js"></script>
-
-
+    
+    <script src="/public/js/zload.js"></script>
 </head>
