@@ -130,4 +130,3 @@
     </header>
     ```
 
-Thay xong file này, bạn làm nốt bước thêm dòng ẩn lỗi `error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);` vào **đầu file `index.php`** nữa là toàn bộ hệ thống web chạy trên Render sẽ trơn tru, sạch sẽ lỗi 100%! Cứ push lên GitHub rồi xem kết quả đổi thay nhé.
