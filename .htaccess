@@ -1,12 +1,10 @@
 RewriteEngine On
-
-# Ép nhận diện từ gốc thư mục hệ thống Render
 RewriteBase /
 
-# Nếu là thư mục hoặc tệp tin tồn tại thật thì cho truy cập trực tiếp ngay lập tức
+# Nếu tệp tin hoặc thư mục tồn tại thật thì cho truy cập thẳng không rewrite
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Chỉ những đường dẫn ảo không tồn tại mới ném về index.php xử lý router
+# Chuyển hướng các request ảo về index.php
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

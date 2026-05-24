@@ -1,4 +1,10 @@
 <?php
+// 1. CHẶN VÒNG LẶP VÔ TẬN: Nếu request lỗi trỏ đến file tĩnh, dừng xử lý PHP ngay lập tức
+if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js|ico|svg|webp)$/i', $_SERVER['REQUEST_URI'])) {
+    header("HTTP/1.0 404 Not Found");
+    exit;
+}
+
 // Tắt cảnh báo Notice/Warning để giữ giao diện sạch sẽ trên môi trường Render Docker
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
@@ -34,10 +40,10 @@ $ProductModel = new ProductModel();
 $CategoryModel = new CategoryModel();
 $CartModel = new CartModel();
 
-// 1. Nhúng phần đầu trang (Thẻ <head> chứa toàn bộ link thư viện CSS chuẩn)
+// 2. Nhúng phần đầu trang (Thẻ <head> chứa toàn bộ link thư viện CSS chuẩn)
 require_once "components/head.php";
 
-// 2. Nhúng Header (Menu điều hướng, Logo và Giỏ hàng)
+// 3. Nhúng Header (Menu điều hướng, Logo và Giỏ hàng)
 require_once "components/header.php";
 
 // BỘ ĐIỀU HƯỚNG ROUTER AN TOÀN
