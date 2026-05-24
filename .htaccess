@@ -1,11 +1,12 @@
 RewriteEngine On
 
-# Ép Apache nhận diện đường dẫn từ gốc thư mục Docker
+# Ép nhận diện từ gốc thư mục hệ thống Render
 RewriteBase /
 
-# Nếu là thư mục hoặc tệp tin có thật (như .css, .js, .png) thì bỏ qua, cho load trực tiếp
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
+# Nếu là thư mục hoặc tệp tin tồn tại thật thì cho truy cập trực tiếp ngay lập tức
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# Các đường dẫn ảo còn lại mới ném về index.php
+# Chỉ những đường dẫn ảo không tồn tại mới ném về index.php xử lý router
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
