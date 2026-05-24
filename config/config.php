@@ -8,8 +8,11 @@ function pdo_get_connection(){
 
     $dburl = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8";
     
-    // THAY ĐỔI ĐOẠN NÀY: Bỏ qua việc đọc file ca.pem vật lý để tránh lỗi đường dẫn trên Linux
     $options = array(
+        // Chặn sập 502: Ép thời gian chờ kết nối tối đa là 4 giây, quá 4s sẽ ngắt chứ không treo server
+        PDO::ATTR_TIMEOUT => 4,
+        
+        // Tùy chọn SSL phù hợp nhất với Aiven Cloud chạy trên môi trường Docker Linux
         PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     );
@@ -17,7 +20,12 @@ function pdo_get_connection(){
     try {
         return new PDO($dburl, $username, $password, $options);
     } catch (PDOException $e) {
-        // Bẫy lỗi thông minh để không làm sập server gây lỗi 502 nữa
-        die("<h3>Lỗi kết nối CSDL Cloud:</h3> <p>" . $e->getMessage() . "</p>");
+        // Bẫy lỗi: Xuất thẳng lỗi Database ra giao diện để kiểm tra, ngăn chặn hoàn toàn lỗi 502
+        echo "<div style='padding:20px; background:#fff5f5; color:#c53030; border:1px solid #feb2b2; margin:20px; border-radius:5px;'>";
+        echo "<h3>⚠️ Lỗi Kết Nối Cơ Sở Dữ Liệu Cloud:</h3>";
+        echo "<p>" . htmlspecialchars($e->getMessage()) . "</p>";
+        echo "<p>Vui lòng kiểm tra lại trạng thái Cluster trên Aiven hoặc thông tin tài khoản.</p>";
+        echo "</div>";
+        exit; // Dừng chương trình ngay tại đây
     }
 }
