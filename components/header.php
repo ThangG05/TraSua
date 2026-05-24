@@ -40,12 +40,15 @@
             <li><a href="#"><span class="icon_heart_alt"></span>
                     <div class="tip">2</div>
                 </a></li>
-            <li><a href="#"><span class="icon_bag_alt"></span>
-                    <div class="tip">2</div>
+            <li><a href="index.php?url=gio-hang"><span class="icon_bag_alt"></span>
+                    <div class="tip"><?=$count_carts?></div>
                 </a></li>
         </ul>
+        
         <div class="offcanvas__logo">
-            <a href="/index.php"><img src="/upload/logo/logo-phuclong.png" alt="Phúc Long"></a>
+            <a href="/index.php">
+                <img src="/upload/logo/logo-phuclong.png" alt="Phúc Long" style="max-width: 140px; height: auto; object-fit: contain;">
+            </a>
         </div>
         <div id="mobile-menu-wrap"></div>
 
@@ -72,7 +75,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="index.php"><img style="max-height: 40px;" src="/upload/logo/logo-phuclong.png" alt="Phúc Long"></a>
+                        <a href="index.php"><img style="max-height: 40px; object-fit: contain;" src="/upload/logo/logo-phuclong.png" alt="Phúc Long"></a>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
@@ -128,5 +131,3 @@
             </div>
         </div>
     </header>
-    ```
-
